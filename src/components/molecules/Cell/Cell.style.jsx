@@ -47,8 +47,8 @@ export const StyledCell = styled.div(
                     content: '';
                     position: absolute;
                     top: 45%;
-                    width: 15%;
-                    height: 15%;
+                    width: 13%;
+                    height: 13%;
                     border-radius: 50%;
                     background-color: black;
                 }

@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.div(
+  ({ show }) => css`
   position: absolute;
   top: 0;
   left: 0;
@@ -11,23 +12,26 @@ export const ModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
-`;
+  z-index: ${show? 9: -1};
+`,
+);
 
-export const StyledDialog = styled.div`
+export const StyledDialog = styled.div(
+  ({show}) => css`
   display: flex;
   flex-direction: column;
   position: fixed;
 
-  top: 50%;
+  ${show ? css`top: 50%` : css`top: -25%`};
+  transition: top 1s ease-in-out;
   left: 50%;
   margin-top: -250px;  /* Negative half of height. */
-  margin-left: -160px;  /* Negative half of width. */
+  margin-left: -140px;  /* Negative half of width. */
 
 
 
-  width: 320px;
-  height: 500px;
+  width: 280px;
+  height: 400px;
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
@@ -36,7 +40,12 @@ export const StyledDialog = styled.div`
     height: 500px;
     margin-top: 7vw;
   } */
-`;
+
+  .dialogContent{
+    height: 100%;
+  }
+`,
+);
 
 export const StyledDialogHeader = styled.div`
   display: flex;
@@ -44,15 +53,7 @@ export const StyledDialogHeader = styled.div`
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: #d9d9d9;
+  background-color: #eeebeb;
   color: #6d6d6d;
-
-`;
-
-export const StyledDialogContent = styled.div`
-  flex: 1 1 auto;
-  margin: 15px;
-  border-radius: 20px;
-  background-color: #01be86;
-  color: white;
+  font-weight: 600;
 `;

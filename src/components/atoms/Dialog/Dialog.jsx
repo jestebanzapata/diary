@@ -1,15 +1,15 @@
 import React from 'react'
-import { ModalContainer, StyledDialog, StyledDialogHeader, StyledDialogContent } from './Dialog.styles'
+import { ModalContainer, StyledDialog, StyledDialogHeader } from './Dialog.styles'
 
 function Dialog(props) {
   const {title, content, show} = props;
   return (
-    show ? <ModalContainer><StyledDialog>
+    <ModalContainer show={show}><StyledDialog show={show}>
       <StyledDialogHeader>{title}</StyledDialogHeader>
-      <StyledDialogContent>
+      <div className='dialogContent'>
         {content}
-      </StyledDialogContent>
-    </StyledDialog></ModalContainer>: null
+      </div>
+    </StyledDialog></ModalContainer>
   )
 }
 

@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const StyledBoatContainer = styled.div`
-
+const mainColor = "#db4c44";
+export const StyledBoatContainer = styled.div(
+  ({ color= mainColor }) =>
+    css`
   position: relative;
   width: 30vw;
   animation: boat-move 3s ease-in-out infinite;
@@ -16,7 +18,7 @@ export const StyledBoatContainer = styled.div`
     position: absolute;
     width: 5vw;
     height: 6.5vw;
-    background-color: #DB6D67;
+    background-color: ${color};
     top: 2.5vw;
     left: 11.5vw;
     z-index: 10;
@@ -158,7 +160,7 @@ export const StyledBoatContainer = styled.div`
 
         .line1 {
           border-radius: 0.4vw;
-          background-color: #D3635D;
+          background-color: ${color};
           position: absolute;
           width: 1vw;
           height: 1.5vw;
@@ -168,7 +170,7 @@ export const StyledBoatContainer = styled.div`
 
         .line2 {
           border-radius: 0.2vw;
-          background-color: #D3635D;
+          background-color: ${color};
           position: absolute;
           width: 1.5vw;
           height: 1vw;
@@ -177,7 +179,7 @@ export const StyledBoatContainer = styled.div`
 
         .line3 {
           border-radius: 0.2vw;
-          background-color: #D3635D;
+          background-color: ${color};
           position: absolute;
           width: 1vw;
           height: 1.5vw;
@@ -187,7 +189,7 @@ export const StyledBoatContainer = styled.div`
 
         .line4 {
           border-radius: 0.4vw;
-          background-color: #D3635D;
+          background-color: ${color};
           position: absolute;
           width: 1.5vw;
           height: 1vw;
@@ -216,7 +218,7 @@ export const StyledBoatContainer = styled.div`
       width: 30vw;
       left: 1.5vw;
       z-index: 2;
-      border-top: 10vw solid #DB6D67;
+      border-top: 10vw solid ${color};
       border-left: 5vw solid transparent;
       border-right: 5vw solid transparent;
     }
@@ -243,17 +245,18 @@ export const StyledBoatContainer = styled.div`
     width: 8.5vw;
     left: 17.5vw;
     z-index: 2;
-    border-bottom: 12.5vw solid #DB6D67;
+    border-bottom: 12.5vw solid ${color};
     border-left: 9vw solid transparent;
-    border-right: 5.5vw solid #DB6D67;
+    border-right: 5.5vw solid ${color};
 
     .front {
       position: absolute;
-      border-top: 12.5vw solid #DB6D67;
-      border-left: 9vw solid #DB6D67;
+      border-top: 12.5vw solid ${color};
+      border-left: 9vw solid ${color};
       border-right: 9vw solid transparent;
       left: 6.5vw;
     }
   }
 }
-`;
+ `,
+);

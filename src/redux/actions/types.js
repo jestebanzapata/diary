@@ -1,3 +1,4 @@
 export const SET_BOARD_INITIAL_STATE = 'SET_BOARD_INITIAL_STATE';
 export const SET_CONFIG = 'SET_CONFIG';
 export const SELECT_CELL = 'SELECT_CELL';
+export const SET_GAME_STATUS = 'SET_GAME_STATUS';

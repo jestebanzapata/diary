@@ -1,14 +1,37 @@
 import React from 'react'
-import { StyledContainer } from './RadarInfo.styles'
+import { connect } from 'react-redux';
+import GeneralButton from '../GeneralButton/GeneralButton';
+import { StyledContainer } from './RadarInfo.styles';
+import { setGameStatus } from '../../../redux/actions/boardActions';
+import { gameStatus } from 'constants/types';
 
 function RadarInfo(props) {
-  const {content, result} = props;
+  const { result, setGameStatus } = props;
   return (
     <StyledContainer>
-      <span>{content}</span>
-      <span>{result}</span>
+      <div className="content">
+        <h2>!MUY BIEN!</h2>
+        <span>Descubriste un código</span>
+        <div className="round">
+          {result}
+        </div>
+      </div>
+      <GeneralButton navigateTo={'/levels'} onClick={() => {
+        console.log("set status");
+        setGameStatus({ status: gameStatus.PLAYING });
+      }}>Continuar</GeneralButton>
     </StyledContainer>
   )
 }
 
-export default RadarInfo
+const mapStateToProps = (state, ownProps) => {
+  return {
+    gameState: state.board.gameState,
+  }
+};
+
+const mapDispatchToProps = {
+  setGameStatus
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RadarInfo);

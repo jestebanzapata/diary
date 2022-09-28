@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const CELL_SIZE = 13;
+const CELL_SIZE = 10;
 
 export const StyledBoardSubContainer = styled.div`
     display: grid;

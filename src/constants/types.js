@@ -25,7 +25,7 @@ export const BOARD1 = {
   },
   stepRows: 5,
   stepColumns: 5,
-  notDraggableSquares: [0, 2, 4, 10, 12, 14, 20, 22, 24],
+  notDraggableSquares: [6, 7, 8, 11, 12, 13, 16, 17, 18],
   messages: [
     "You are art!",
     "You are magic",
@@ -46,7 +46,7 @@ export const BOARD2 = {
   },
   stepRows: 7,
   stepColumns: 5,
-  notDraggableSquares: [0, 2, 4, 10, 12, 14, 20, 22, 24, 30, 32, 34],
+  notDraggableSquares: [0, 1, 2, 3, 4, 30, 31, 32, 33, 34],
   messages: [
     "You are art!",
     "You are magic",
@@ -55,4 +55,25 @@ export const BOARD2 = {
   result: "4"
 }
 
-export const BOARDS = [BOARD1, BOARD2];
+export const BOARD3 = {
+  id: 'level3',
+  title: '3',
+  requiredLevel: 'level2',
+  colors: {
+    color1: "#ce0a0a",
+    color2: "#530083",
+    color3: "#f5ff6c",
+    color4: "#00ffe1"
+  },
+  stepRows: 7,
+  stepColumns: 5,
+  notDraggableSquares: [0, 4, 17, 30, 34],
+  messages: [
+    "You are art!",
+    "You are magic",
+    "Dont give up"
+  ],
+  result: "4"
+}
+
+export const BOARDS = [BOARD1, BOARD2, BOARD3];

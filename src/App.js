@@ -1,9 +1,10 @@
+import { SCENE1 } from 'constants/SceneConfig';
 import './App.css';
 import Scene from './components/templates/Scene/Scene';
 
 function App() {
   return (
-    <Scene/>
+    <Scene sceneConfig={SCENE1}/>
   );
 }
 

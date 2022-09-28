@@ -1,9 +1,10 @@
 import React from 'react'
 import { StyledBoatContainer } from './Boat.styles'
 
-function Boat() {
+function Boat(props) {
+  const {color} = props;
   return (
-    <StyledBoatContainer>
+    <StyledBoatContainer color={color}>
       <div className="pipe"></div>
       <div className='cabin1'>
         <div className='ceil1' >

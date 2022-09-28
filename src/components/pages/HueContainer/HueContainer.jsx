@@ -4,6 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { StyledHueContainer } from './HueContainer.style';
 import HueBoard from 'components/organisms/HueBoard/HueBoard';
+import Toolbar from 'components/molecules/Toolbar/Toolbar';
 
 
 
@@ -12,9 +13,12 @@ function HueContainer(props) {
 
   return (
     <StyledHueContainer>
-      {
-        <HueBoard boardConfig={board}/>
-      }
+      <HueBoard boardConfig={board}/>
+      <Toolbar />
+      <div className='mountain1'></div>
+      <div className='mountain21'></div>
+      <div className='mountain22'></div>
+      <div className="floor"></div>
     </StyledHueContainer>
   )
 }

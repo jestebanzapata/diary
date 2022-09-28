@@ -1,14 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import {
-    StyledAutoButton,
     StyledBoard,
     StyledBoardSubContainer,
-    StyledCoordCell,
-    StyledCoordXContainer,
-    StyledCoordYContainer
 } from './HueBoard.style';
-import { Refresh } from '@styled-icons/heroicons-outline';
 import { gameStatus, LOCAL_STORAGE_KEY } from 'constants/types';
 import Cell from 'components/molecules/Cell/Cell';
 import { setBoardInitialState, setConfig } from '../../../redux/actions/boardActions';
@@ -26,13 +21,16 @@ const HueBoard = (props) => {
 
     useEffect(() => {
         buildRandomBoard();
-        play();
+
     }, []);
+
 
     useEffect(() => {
         if (gameState.status === gameStatus.FINISHED){
+            console.log("show won modal");
             setShowWinModal(true);
             localStorage.setItem(`${LOCAL_STORAGE_KEY.LEVEL_FINISHED}${boardConfig.id}`, true);
+            play();
         }
     }, [gameState.status]);
 
@@ -76,7 +74,6 @@ const HueBoard = (props) => {
         shuffleArray(boardData);
 
         for (let index = 0; index < boardConfig.notDraggableSquares.length; index++) {
-
              boardData.splice(boardConfig.notDraggableSquares[index], 0, NotDraggableCells[index]);
         }
 
@@ -89,13 +86,9 @@ const HueBoard = (props) => {
         setBoardInitialState({ board: boardData });
     };
 
-
-
-    console.log("board ==> ", board);
-
     return (
         <>
-            <Dialog title={"RADAR"} content={<RadarInfo content={"Primer valor encontrado:"} result={boardConfig.result}/>} show={showWinModal}/>
+            <Dialog title={"RADAR"} content={<RadarInfo result={boardConfig.result}/>} show={showWinModal}/>
             <StyledBoardSubContainer>
                 <StyledBoard rows={boardConfig.stepRows} columns={boardConfig.stepColumns}>
                     {board.map((data, index) => {

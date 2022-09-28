@@ -1,6 +1,6 @@
 {
-  "short_name": "Diary",
-  "name": "Love Diary",
+  "short_name": "My Love",
+  "name": "Happy Love",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#3367D6"
+  "theme_color": "#ffffff",
+  "background_color": "#000000"
 }

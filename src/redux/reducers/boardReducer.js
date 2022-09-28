@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { gameStatus, modes } from "constants/types";
-import { selectCell, setBoardInitialState, setConfig } from "redux/actions/boardActions";
+import { selectCell, setBoardInitialState, setConfig, setGameStatus } from "redux/actions/boardActions";
 
 const initialState = {
     gameState: {
@@ -20,9 +20,12 @@ function isBoardCompleted(cell, index, arrreglo) {
 
 const boardReducer = createReducer(initialState, (builder) => {
     builder.addCase(setBoardInitialState, (state, action) => {
-        state.gameState = { ...state.gameState, board: [ ...action.payload.board ] }
+        state.gameState = { ...state.gameState, board: [...action.payload.board], status: gameStatus.PLAYING }
     }).addCase(setConfig, (state, action) => {
         state.gameState = { ...state.gameState, config: { ...action.payload.config }}
+    }).addCase(setGameStatus, (state, action) => {
+        console.log("gmae status ==> ", action.payload);
+        state.gameState = { ...state.gameState, status: { ...action.payload.status } }
     }).addCase(selectCell, (state, action) => {
         const { cell } = action.payload;
         const { index } = cell;
